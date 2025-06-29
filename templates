@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>📝 Leave a Message</h1>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <hr>
+    <h2>📩 Messages</h2>
+    <div id="messages">
+        {% for msg in messages %}
+            <div class="msg">
+                <strong>{{ msg.name }}:</strong> {{ msg.message }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
